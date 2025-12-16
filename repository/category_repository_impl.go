@@ -1,11 +1,11 @@
 package repository
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/helper"
-	"Users/riwandi/Documents/practice/go-restful-api/model/domain"
 	"context"
 	"database/sql"
 	"errors"
+	"github.com/rwndy/practice-go-restful-api/helper"
+	"github.com/rwndy/practice-go-restful-api/model/domain"
 )
 
 type CategoryRepositoryImpl struct {

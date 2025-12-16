@@ -1,11 +1,11 @@
 package main
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/app/database"
-	"Users/riwandi/Documents/practice/go-restful-api/controller"
-	"Users/riwandi/Documents/practice/go-restful-api/repository"
-	"Users/riwandi/Documents/practice/go-restful-api/service"
 	"fmt"
+	"github.com/rwndy/practice-go-restful-api/app/database"
+	"github.com/rwndy/practice-go-restful-api/controller"
+	"github.com/rwndy/practice-go-restful-api/repository"
+	"github.com/rwndy/practice-go-restful-api/service"
 	"log"
 	"net/http"
 

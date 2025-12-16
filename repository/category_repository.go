@@ -1,9 +1,9 @@
 package repository
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/model/domain"
 	"context"
 	"database/sql"
+	"github.com/rwndy/practice-go-restful-api/model/domain"
 )
 
 // CategoryRepository for contract using an interface

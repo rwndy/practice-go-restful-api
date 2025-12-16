@@ -1,9 +1,9 @@
 package database
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/helper"
 	"database/sql"
 	"fmt"
+	"github.com/rwndy/practice-go-restful-api/helper"
 	"log"
 	"os"
 	"time"

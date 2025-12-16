@@ -1,10 +1,10 @@
 package controller
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/helper"
-	"Users/riwandi/Documents/practice/go-restful-api/model/web"
-	"Users/riwandi/Documents/practice/go-restful-api/service"
 	"github.com/julienschmidt/httprouter"
+	"github.com/rwndy/practice-go-restful-api/helper"
+	"github.com/rwndy/practice-go-restful-api/model/web"
+	"github.com/rwndy/practice-go-restful-api/service"
 	"net/http"
 	"strconv"
 )

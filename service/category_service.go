@@ -1,8 +1,8 @@
 package service
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/model/web"
 	"context"
+	"github.com/rwndy/practice-go-restful-api/model/web"
 )
 
 // CategoryService business logic here

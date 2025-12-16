@@ -1,13 +1,13 @@
 package service
 
 import (
-	"Users/riwandi/Documents/practice/go-restful-api/helper"
-	"Users/riwandi/Documents/practice/go-restful-api/model/domain"
-	"Users/riwandi/Documents/practice/go-restful-api/model/web"
-	"Users/riwandi/Documents/practice/go-restful-api/repository"
 	"context"
 	"database/sql"
 	"github.com/go-playground/validator/v10"
+	"github.com/rwndy/practice-go-restful-api/helper"
+	"github.com/rwndy/practice-go-restful-api/model/domain"
+	"github.com/rwndy/practice-go-restful-api/model/web"
+	"github.com/rwndy/practice-go-restful-api/repository"
 )
 
 type CategoryServiceImpl struct {
