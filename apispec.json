@@ -1,0 +1,236 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Category RESTful API",
+    "description": "API Spec for category RESTful Api",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "paths": {
+     "/categories": {
+       "get": {
+         "security": [{
+           "CategoryAuth": []
+         }],
+         "tags": ["Category API"],
+         "description": "List all categories",
+         "summary": "List all categories",
+         "responses": {
+           "200" : {
+             "description": "Success get all categories",
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "type": "object",
+                   "properties": {
+                     "code": {
+                       "type": "number"
+                     },
+                     "status": {
+                       "type": "string"
+                     },
+                     "data": {
+                       "type": "array",
+                       "items": {
+                         "$ref": "#/components/schemas/Category"
+                       }
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       },
+       "post": {
+         "security": [{
+           "CategoryAuth": []
+         }],
+         "description": "Create new category",
+         "summary": "Create new category",
+         "tags": ["Category API"],
+         "requestBody": {
+           "content": {
+             "application/json": {
+               "schema": {"$ref": "#/components/schemas/Payload"
+               }
+             }
+           }
+         },
+         "responses": {
+           "200": {
+             "description": "Success Create Category",
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "type": "object",
+                   "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                     "status": {
+                       "type": "string"
+                     },
+                     "data": {
+                       "$ref": "#/components/schemas/Category"
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+     },
+    "/category/{categoryId}": {
+      "get": {
+        "security": [{
+          "CategoryAuth": []
+        }],
+        "tags": ["Category API"],
+        "summary": "Get category by id",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category Id"
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "Success get category detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "security": [{
+          "CategoryAuth": []
+        }],
+        "tags": ["Category API"],
+        "summary": "Update category by id",
+        "description": "Update category by id",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Payload"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success update category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Category"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "security": [{
+          "CategoryAuth": []
+        }],
+        "tags": ["Category API"],
+        "summary": "Delete category by id",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "description": "Category Id"
+          }
+        ],
+
+        "responses": {
+          "200": {
+            "description": "Success delete category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "number"
+                    },
+                    "status": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "CategoryAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-Key",
+        "description": "Authentication for Category API"
+      }
+    },
+    "schemas": {
+      "Payload": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
