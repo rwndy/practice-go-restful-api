@@ -33,9 +33,9 @@ func main() {
 	router := httprouter.New()
 
 	router.GET("/api/categories", categoryController.FindAll)
-	router.GET("/api/categories/:categoryId", categoryController.FindById)
-	router.PUT("/api/categories/:categoryId", categoryController.Update)
-	router.DELETE("/api/categories/:categoryId", categoryController.Delete)
+	router.GET("/api/category/:categoryId", categoryController.FindById)
+	router.PUT("/api/category/:categoryId", categoryController.Update)
+	router.DELETE("/api/category/:categoryId", categoryController.Delete)
 	router.POST("/api/categories", categoryController.Create)
 
 	server := http.Server{
