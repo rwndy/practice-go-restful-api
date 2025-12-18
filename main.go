@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/rwndy/practice-go-restful-api/app/database"
 	"github.com/rwndy/practice-go-restful-api/controller"
+	"github.com/rwndy/practice-go-restful-api/exception"
 	"github.com/rwndy/practice-go-restful-api/repository"
 	"github.com/rwndy/practice-go-restful-api/service"
 	"log"
@@ -37,6 +38,8 @@ func main() {
 	router.PUT("/api/category/:categoryId", categoryController.Update)
 	router.DELETE("/api/category/:categoryId", categoryController.Delete)
 	router.POST("/api/categories", categoryController.Create)
+
+	router.PanicHandler = exception.ErrorHandler
 
 	server := http.Server{
 		Addr:    ":3000",

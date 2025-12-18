@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"github.com/go-playground/validator/v10"
+	"github.com/rwndy/practice-go-restful-api/exception"
 	"github.com/rwndy/practice-go-restful-api/helper"
 	"github.com/rwndy/practice-go-restful-api/model/domain"
 	"github.com/rwndy/practice-go-restful-api/model/web"
@@ -55,7 +56,10 @@ func (service CategoryServiceImpl) Update(ctx context.Context, request web.Categ
 
 	// check category is not empty
 	category, err := service.CategoryRepository.FindById(ctx, tx, request.Id)
-	helper.HandlePanic(err)
+
+	if err != nil {
+		panic(exception.NewNotFoundError(err.Error()))
+	}
 
 	category.Name = request.Name
 	category = service.CategoryRepository.Update(ctx, tx, category)
@@ -81,7 +85,9 @@ func (service CategoryServiceImpl) FindById(ctx context.Context, categoryId int)
 	defer helper.HandleTx(tx)
 
 	category, err := service.CategoryRepository.FindById(ctx, tx, categoryId)
-	helper.HandlePanic(err)
+	if err != nil {
+		panic(exception.NewNotFoundError(err.Error()))
+	}
 
 	return helper.ToCategoryResponse(category)
 }
