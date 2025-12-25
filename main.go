@@ -5,6 +5,7 @@ import (
 	"github.com/rwndy/practice-go-restful-api/app/database"
 	"github.com/rwndy/practice-go-restful-api/controller"
 	"github.com/rwndy/practice-go-restful-api/exception"
+	"github.com/rwndy/practice-go-restful-api/middleware"
 	"github.com/rwndy/practice-go-restful-api/repository"
 	"github.com/rwndy/practice-go-restful-api/service"
 	"log"
@@ -43,7 +44,7 @@ func main() {
 
 	server := http.Server{
 		Addr:    ":3000",
-		Handler: router,
+		Handler: middleware.NewAuthMiddleware(router),
 	}
 
 	fmt.Println("🚀 Server starting on http://localhost:3000")
